@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity"
+    android:padding="4mm"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Panel"
+        android:gravity="center"
+        android:textSize="5mm"
+        android:textStyle="bold"/>
+
+<LinearLayout
+    android:layout_weight="1"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/menu_BTN_userInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update private information"/>
+
+    <Button
+        android:id="@+id/menu_BTN_cusInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customers information"/>
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/menu_BTN_logout"
+        android:layout_gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"/>
+
+</LinearLayout>

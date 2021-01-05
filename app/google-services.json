@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "100431839589",
+    "firebase_url": "https://peak-text-298310-default-rtdb.firebaseio.com",
+    "project_id": "peak-text-298310",
+    "storage_bucket": "peak-text-298310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100431839589:android:6a4d29736271ebaa1b218c",
+        "android_client_info": {
+          "package_name": "com.benkatzav.apptest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100431839589-n7ubcul3fu1vmqenr6o6mkarn0l6j4hh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzsya9tg5K2mB7D3_QBZSzKx73Ic3vVDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100431839589-n7ubcul3fu1vmqenr6o6mkarn0l6j4hh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100431839589:android:06cdc4ae35d9c3141b218c",
+        "android_client_info": {
+          "package_name": "com.benkatzav.berman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100431839589-n7ubcul3fu1vmqenr6o6mkarn0l6j4hh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzsya9tg5K2mB7D3_QBZSzKx73Ic3vVDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100431839589-n7ubcul3fu1vmqenr6o6mkarn0l6j4hh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

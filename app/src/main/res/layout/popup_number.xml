@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative"
+    android:padding="3mm"
+    android:orientation="vertical">
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="5mm"
+        android:text="Current Phone Number:"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/pop_phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="5mm"
+        android:text="NOT INSERTED"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert Phone Number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pop_EDT_newNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/pop_BTN_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"/>
+
+
+</LinearLayout>
