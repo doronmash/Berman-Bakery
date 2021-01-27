@@ -186,7 +186,7 @@ public class CustomerInformation extends AppCompatActivity {
             customers.add("טיב טעם הוד השרון");
         }
 
-        if(per.equals("Tel_Aviv_Permission")) {
+        if(per.equals("Petah_Tikva_Permission")) {
             customers.add("חצי חינם פתח תקווה");
             customers.add("אושר עד פתח תקווה");
             customers.add("שופרסל דיל פתח תקווה");

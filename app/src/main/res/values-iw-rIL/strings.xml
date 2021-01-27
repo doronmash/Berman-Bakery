@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ברמן</string>
+    <string name="login">התחבר</string>
+    <string name="signup">הרשם</string>
+    <string name="password">סיסמא</string>
+    <string name="email">אימייל</string>
+    <string name="logout">התנתק</string>
+    <string name="title_activity_maps">מפה</string>
+    <string name="customer_info">ניהול לקוחות</string>
+    <string name="update_info">עדכון פרטים אישיים</string>
+    <string name="user_panel">ממשק משתמש</string>
+    <string name="update">עדכן</string>
+    <string name="Insert_Phone_Number">הזן מספר טלפון</string>
+    <string name="Current_Phone_Number">מספר טלפון נוכחי:</string>
+    <string name="NOT_INSERTED">לא הוזן</string>
+    <string name="phone">טלפון:</string>
+    <string name="name">שם:</string>
+    <string name="permission">הרשאות:</string>
+    <string name="NO_PERMISSIONS">אין הרשאות</string>
+    <string name="update_order">עדכן הזמנה</string>
+</resources>

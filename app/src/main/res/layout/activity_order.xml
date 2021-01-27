@@ -298,6 +298,6 @@
         android:id="@+id/order_BTN_updateOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Order"/>
+        android:text="@string/update_order"/>
 
 </LinearLayout>

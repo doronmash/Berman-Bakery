@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="5mm"
-        android:text="Current Phone Number:"
+        android:text="@string/Current_Phone_Number"
         />
 
     <TextView
@@ -21,13 +21,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="5mm"
-        android:text="NOT INSERTED"
+        android:text="@string/NOT_INSERTED"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Insert Phone Number">
+        android:hint="@string/Insert_Phone_Number">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pop_EDT_newNumber"
@@ -41,7 +41,7 @@
         android:id="@+id/pop_BTN_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update"/>
+        android:text="@string/update"/>
 
 
 </LinearLayout>

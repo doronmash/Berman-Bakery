@@ -6,4 +6,16 @@
     <string name="email">Email</string>
     <string name="logout">Log Out</string>
     <string name="title_activity_maps">Map</string>
+    <string name="customer_info">Customers Managment</string>
+    <string name="update_info">Update private information</string>
+    <string name="user_panel">User Panel</string>
+    <string name="update">Update</string>
+    <string name="Insert_Phone_Number">Insert phone number</string>
+    <string name="Current_Phone_Number">Current phone number:</string>
+    <string name="NOT_INSERTED">NOT INSERTED</string>
+    <string name="phone">Phone:</string>
+    <string name="name">Name:</string>
+    <string name="permission">Permissions:</string>
+    <string name="NO_PERMISSIONS">NO PERMISSIONS</string>
+    <string name="update_order">Update Order</string>
 </resources>
