@@ -33,12 +33,12 @@
             android:value="AIzaSyBjUwuXIqOtwugxDzubppzfRsmECqtlCDk" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".FragMaps"
             android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".OrderManagment" />
-        <activity android:name=".CustomerInformation" />
-        <activity android:name=".UserInformation" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".FragOrderManagment" />
+        <activity android:name=".FragCustomerInformation" />
+        <activity android:name=".FragUserInformation" />
+        <activity android:name=".FragMenu" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

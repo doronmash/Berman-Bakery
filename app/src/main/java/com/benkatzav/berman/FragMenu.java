@@ -1,18 +1,18 @@
 package com.benkatzav.berman;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,30 +20,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class MenuActivity extends AppCompatActivity {
+public class FragMenu extends GeneralFragment {
 
     private ProgressBar progressBar;
     private String userID;
     private FirebaseUser currentUser;
-    private FirebaseAuth mAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
     private Button logout, userInfo, cusInfo;
     private String permission = null;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        rootView = inflater.inflate(R.layout.fragment_menu, container, false);
 
         initProgressBar();
         findViews();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();
+
         myRef = firebaseDatabase.getReference();
         currentUser = mAuth.getCurrentUser();
         userID = currentUser.getUid();
@@ -67,7 +64,7 @@ public class MenuActivity extends AppCompatActivity {
         userInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this,UserInformation.class));
+                callFragment(new FragUserInformation(), null);
             }
         });
 
@@ -75,21 +72,22 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(permission != null)
-                    startActivity(new Intent(MenuActivity.this,CustomerInformation.class));
+                    callFragment(new FragCustomerInformation(), FragMenu.this);
                 else
-                    Toast.makeText(MenuActivity.this,"No permissions available",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"No permissions available",Toast.LENGTH_SHORT).show();
             }
         });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.signOut();
-                finish();
+                FragLogin.signOut();
+                callFragment(new FragLogin(), null);
             }
         });
 
 
+        return rootView;
     }
 
     private void initProgressBar() {
@@ -103,11 +101,10 @@ public class MenuActivity extends AppCompatActivity {
         }, 4000);
     }
 
-
     private void findViews() {
-        progressBar = findViewById(R.id.prog);
-        userInfo = findViewById(R.id.menu_BTN_userInfo);
-        cusInfo = findViewById(R.id.menu_BTN_cusInfo);
-        logout = findViewById(R.id.menu_BTN_logout);
+        progressBar = rootView.findViewById(R.id.prog);
+        userInfo = rootView.findViewById(R.id.menu_BTN_userInfo);
+        cusInfo = rootView.findViewById(R.id.menu_BTN_cusInfo);
+        logout = rootView.findViewById(R.id.menu_BTN_logout);
     }
 }

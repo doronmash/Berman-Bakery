@@ -1,13 +1,14 @@
 package com.benkatzav.berman;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,10 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CustomerInformation extends AppCompatActivity {
+public class FragCustomerInformation extends GeneralFragment {
     private String userID;
     private FirebaseUser currentUser;
-    private FirebaseAuth mAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
     private Button phoneNumber, changeOrder,findLocation;
@@ -40,16 +39,19 @@ public class CustomerInformation extends AppCompatActivity {
     Dialog myDialog;
     double lat,lng;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cinformation);
 
-        myDialog = new Dialog(this);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        rootView = inflater.inflate(R.layout.fragment_cinformation, container, false);
+
+
+        myDialog = new Dialog(context);
 
         findViews();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();
+
         myRef = firebaseDatabase.getReference();
         currentUser = mAuth.getCurrentUser();
         userID = currentUser.getUid();
@@ -102,9 +104,13 @@ public class CustomerInformation extends AppCompatActivity {
                     public void onClick(View v) {
                         if(spinner.getSelectedItem().toString() != null || !spinner.getSelectedItem().toString().equals(""))
                             currentCustomer = spinner.getSelectedItem().toString();
-                        Intent oIntent = new Intent(CustomerInformation.this,OrderManagment.class);
-                        oIntent.putExtra("customer_name",currentCustomer);
-                        startActivity(oIntent);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("customer_name",currentCustomer);
+
+                        GeneralFragment fragment = new FragOrderManagment();
+                        fragment.setArguments(bundle);
+                        callFragment(fragment, FragCustomerInformation.this);
                     }
                 });
 
@@ -121,20 +127,25 @@ public class CustomerInformation extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(CustomerInformation.this, "No customer selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "No customer selected",Toast.LENGTH_SHORT).show();
             }
         });
 
 
 
+        return rootView;
     }
 
+
     private void openMapsActivity(double lat, double lng, String currentCustomer) {
-        Intent mIntent = new Intent(CustomerInformation.this,MapsActivity.class);
-        mIntent.putExtra("LAT",lat);
-        mIntent.putExtra("LNG",lng);
-        mIntent.putExtra("LOCATION",currentCustomer);
-        startActivity(mIntent);
+        Bundle bundle = new Bundle();
+        bundle.putDouble("LAT",lat);
+        bundle.putDouble("LNG",lng);
+        bundle.putString("LOCATION",currentCustomer);
+
+        GeneralFragment fragment = new FragMaps();
+        fragment.setArguments(bundle);
+        callFragment(fragment, this);
     }
 
     private void showPopUp() {
@@ -173,7 +184,7 @@ public class CustomerInformation extends AppCompatActivity {
     }
 
     private void initSpinner() {
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, customers);
+        adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, customers);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }
@@ -206,9 +217,9 @@ public class CustomerInformation extends AppCompatActivity {
     }
 
     private void findViews() {
-        phoneNumber = findViewById(R.id.cInfo_BTN_number);
-        changeOrder = findViewById(R.id.cInfo_BTN_order);
-        findLocation = findViewById(R.id.cInfo_BTN_map);
-        spinner = findViewById(R.id.cInfo_spinner);
+        phoneNumber = rootView.findViewById(R.id.cInfo_BTN_number);
+        changeOrder = rootView.findViewById(R.id.cInfo_BTN_order);
+        findLocation = rootView.findViewById(R.id.cInfo_BTN_map);
+        spinner = rootView.findViewById(R.id.cInfo_spinner);
     }
 }

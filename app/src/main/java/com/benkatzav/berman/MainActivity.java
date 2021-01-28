@@ -2,143 +2,73 @@ package com.benkatzav.berman;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
+import android.graphics.SurfaceTexture;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.view.TextureView;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    Button signup,login;
+Button signup,login;
     TextInputEditText email,password;
+    TextureView animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
+        animation = findViewById(R.id.animation);
 
-        findViews();
-        initViews();
-
-
+        callFragment(new FragLogin());
     }
 
-    private void findViews() {
-        email = findViewById(R.id.main_EDT_email);
-        password = findViewById(R.id.main_EDT_password);
-        signup = findViewById(R.id.signup);
-        login = findViewById(R.id.login);
+    public void callFragment(GeneralFragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, (Fragment) fragment, fragment.getClass().getSimpleName())
+                .commit();
     }
 
-    private void initViews() {
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SignInEmailAndPassword(email.getText().toString(),password.getText().toString());
-            }
-        });
-
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createUserEmailAndPassword(email.getText().toString(),password.getText().toString());
-            }
-        });
-    }
-
-    // CHECKS IF LOGGED IN
     @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
+    public void onBackPressed() {
+        GeneralFragment previousFragment = GeneralFragment.getCurrentFragment().getPreviousFragment();
 
-    private void updateUI(FirebaseUser currentUser) {
-        if (currentUser == null) {
-            email.setText("");
-            password.setText("");
+        if (GeneralFragment.getCurrentFragment() instanceof FragMenu) {
+            return;
         }
-        else{
-            Intent mIntent = new Intent(MainActivity.this , MenuActivity.class);
-            startActivity(mIntent);
+
+        if (previousFragment != null) {
+            GeneralFragment.setCurrentFragment(previousFragment);
+            callFragment(previousFragment);
+        } else {
+            moveTaskToBack(true);
         }
     }
 
+    TextureView.SurfaceTextureListener surfaceTextureListener = new TextureView.SurfaceTextureListener() {
+        @Override
+        public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surface, int width, int height) {
 
-    // SIGN IN
-    private void SignInEmailAndPassword(String email, String password) {
-        mAuth = FirebaseAuth.getInstance();
+        }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("Pttt", "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("Pttt", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                            // ...
-                        }
+        @Override
+        public void onSurfaceTextureSizeChanged(@NonNull SurfaceTexture surface, int width, int height) {
 
-                        // ...
-                    }
-                });
+        }
+
+        @Override
+        public boolean onSurfaceTextureDestroyed(@NonNull SurfaceTexture surface) {
+            return false;
+        }
+
+        @Override
+        public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surface) {
+
+        }
     }
-
-    // CREATE USER FUNC
-    private void createUserEmailAndPassword(String email, String password){
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("Pttt", "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(null);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("Pttt", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-    }
-
-
-    public static void signOut(){
-        FirebaseAuth.getInstance().signOut();
-    }
-
-
-
 }
