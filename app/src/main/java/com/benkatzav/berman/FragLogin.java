@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class FragLogin extends GeneralFragment {
-    Button signup,login;
+    AppCompatButton signup,login;
     TextInputEditText email,password;
 
     @Nullable
@@ -80,6 +81,12 @@ public class FragLogin extends GeneralFragment {
     // SIGN IN
     private void SignInEmailAndPassword(String email, String password) {
 
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(getContext(), "Enter user name and password",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
@@ -105,6 +112,11 @@ public class FragLogin extends GeneralFragment {
     // CREATE USER FUNC
     private void createUserEmailAndPassword(String email, String password){
 
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(getContext(), "Enter user name and password",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {

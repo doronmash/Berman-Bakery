@@ -78,20 +78,22 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_weight="1">
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            />
+            android:textColor="@color/white"
+            android:background="@color/brown_button"
+            android:layout_marginHorizontal="10dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signup"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:textColor="@color/white"
+            android:background="@color/brown_button"
             />
 
 

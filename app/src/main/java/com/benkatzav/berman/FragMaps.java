@@ -54,6 +54,7 @@ public class FragMaps extends GeneralFragment implements OnMapReadyCallback {
     public void onResume() {
         super.onResume();
         mapView.onResume();
+        // Hide animation
     }
 
     @Override
@@ -66,6 +67,7 @@ public class FragMaps extends GeneralFragment implements OnMapReadyCallback {
     public void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+        // Show animation
     }
 
     @Override
@@ -95,6 +97,6 @@ public class FragMaps extends GeneralFragment implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(location).title(locationName));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 12));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f));
     }
 }

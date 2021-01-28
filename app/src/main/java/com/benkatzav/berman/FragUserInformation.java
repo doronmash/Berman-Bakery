@@ -2,6 +2,7 @@ package com.benkatzav.berman;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +25,7 @@ public class FragUserInformation extends GeneralFragment {
     private FirebaseUser currentUser;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
-    private Button update;
+    private AppCompatButton update;
     private TextView currentPhone, currentName,permission;
     private TextInputEditText name,phone;
 

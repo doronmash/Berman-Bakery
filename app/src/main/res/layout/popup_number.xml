@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:textSize="5mm"
         android:text="@string/Current_Phone_Number"
+        android:textColor="@color/brown_button"
         />
 
     <TextView
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:textSize="5mm"
         android:text="@string/NOT_INSERTED"
+        android:textColor="@color/brown_button"
         />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -37,11 +39,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/pop_BTN_update"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/update"/>
+        android:text="@string/update"
+        android:textColor="@color/white"
+        android:background="@color/brown_button"/>
 
 
 </LinearLayout>

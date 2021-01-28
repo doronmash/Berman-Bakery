@@ -2,6 +2,7 @@ package com.benkatzav.berman;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class FragCustomerInformation extends GeneralFragment {
     private FirebaseUser currentUser;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
-    private Button phoneNumber, changeOrder,findLocation;
+    private AppCompatButton phoneNumber, changeOrder,findLocation;
     private Spinner spinner;
     private ArrayList<String> customers;
     private ArrayAdapter<String> adapter;

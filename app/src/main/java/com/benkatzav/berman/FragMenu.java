@@ -2,6 +2,7 @@ package com.benkatzav.berman;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,7 +28,7 @@ public class FragMenu extends GeneralFragment {
     private FirebaseUser currentUser;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
-    private Button logout, userInfo, cusInfo;
+    private AppCompatButton logout, userInfo, cusInfo;
     private String permission = null;
 
     @Nullable

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="ניהול לקוחות"
             android:textStyle="bold"
-            android:textColor="#283593"
+            android:textColor="@color/brown_button"
             android:textSize="5mm"
             />
 
@@ -45,35 +45,39 @@
             android:spinnerMode="dropdown"
             android:layout_marginBottom="5mm"/>
 
-        <Button
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cInfo_BTN_number"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="5mm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="#EF6C00"
             android:text="הצג מספר"
             android:textColor="@color/white"
+            android:background="@color/brown_button"
             android:textSize="4mm" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cInfo_BTN_order"
+            android:layout_marginBottom="10dp"
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="#EF6C00"
             android:text="נהל הזמנה"
             android:textColor="@color/white"
+            android:background="@color/brown_button"
+
             android:textSize="4mm" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cInfo_BTN_map"
             android:layout_width = "match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="#EF6C00"
             android:text="הצג מיקום"
             android:textColor="@color/white"
+            android:background="@color/brown_button"
             android:textSize="4mm" />
 
 

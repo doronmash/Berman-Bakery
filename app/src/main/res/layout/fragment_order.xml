@@ -294,10 +294,12 @@
 
 
     </LinearLayout>
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/order_BTN_updateOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/update_order"/>
+        android:text="@string/update_order"
+        android:textColor="@color/white"
+        android:background="@color/brown_button"/>
 
 </LinearLayout>

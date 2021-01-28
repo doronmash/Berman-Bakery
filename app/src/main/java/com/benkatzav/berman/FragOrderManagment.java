@@ -3,6 +3,7 @@ package com.benkatzav.berman;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,7 @@ public class FragOrderManagment extends GeneralFragment {
     private FirebaseUser currentUser;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference myRef;
-    private Button updateOrder;
+    private AppCompatButton updateOrder;
     private TextInputEditText[] items;
     private TextView[] qtys;
     private TextView[] products;

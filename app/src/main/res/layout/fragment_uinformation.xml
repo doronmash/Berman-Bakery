@@ -118,11 +118,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/uInfo_BTN_update"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/update"/>
+        <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/uInfo_BTN_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            android:textColor="@color/white"
+            android:background="@color/brown_button"/>
 
     </LinearLayout>
 
