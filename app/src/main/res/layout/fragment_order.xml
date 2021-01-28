@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".FragOrderManagment"
     android:orientation="vertical"
-    android:padding="4mm">
+    android:padding="4mm"
+    android:layout_weight="10">
 
 
 
@@ -16,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="1mm">
+        android:padding="1mm"
+        >
 
         <TextView
             android:gravity="center"
@@ -51,7 +53,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
         <TextView
             android:id="@+id/order_LBL_product1"
@@ -92,7 +96,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
         <TextView
             android:id="@+id/order_LBL_product2"
@@ -133,7 +139,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
         <TextView
             android:id="@+id/order_LBL_product3"
@@ -174,7 +182,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
         <TextView
             android:id="@+id/order_LBL_product4"
@@ -215,7 +225,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
         <TextView
             android:id="@+id/order_LBL_product5"
@@ -256,7 +268,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
 
         <TextView
             android:id="@+id/order_LBL_product6"
@@ -300,6 +314,7 @@
         android:layout_height="wrap_content"
         android:text="@string/update_order"
         android:textColor="@color/white"
-        android:background="@color/brown_button"/>
+        android:background="@color/brown_button"
+        android:layout_weight="0.5"/>
 
 </LinearLayout>
