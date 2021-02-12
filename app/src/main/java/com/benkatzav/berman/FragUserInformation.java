@@ -65,6 +65,8 @@ public class FragUserInformation extends GeneralFragment {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
+
                 myRef.child(userID).child("name").setValue(name.getText().toString());
                 myRef.child(userID).child("phone").setValue(phone.getText().toString());
                 name.setText("");

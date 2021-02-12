@@ -80,6 +80,7 @@ public class FragCustomerInformation extends GeneralFragment {
                 findLocation.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        startSound(R.raw.button_sound, 50);
 
                         myRef.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -103,6 +104,8 @@ public class FragCustomerInformation extends GeneralFragment {
                 changeOrder.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //startSound(R.raw.button_sound, 50);
+
                         if(spinner.getSelectedItem().toString() != null || !spinner.getSelectedItem().toString().equals(""))
                             currentCustomer = spinner.getSelectedItem().toString();
 
@@ -118,6 +121,8 @@ public class FragCustomerInformation extends GeneralFragment {
                 phoneNumber.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        startSound(R.raw.button_sound, 50);
+
                         if(spinner.getSelectedItem().toString() != null || !spinner.getSelectedItem().toString().equals(""))
                             currentCustomer = spinner.getSelectedItem().toString();
                         showPopUp();
@@ -179,6 +184,8 @@ public class FragCustomerInformation extends GeneralFragment {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
+
                 myRef.child(userID).child("customers").child(currentCustomer).child("phone").setValue(newNumber.getText().toString());
             }
         });

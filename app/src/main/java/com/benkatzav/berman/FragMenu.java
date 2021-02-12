@@ -65,6 +65,8 @@ public class FragMenu extends GeneralFragment {
         userInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
+
                 callFragment(new FragUserInformation(), null);
             }
         });
@@ -72,6 +74,8 @@ public class FragMenu extends GeneralFragment {
         cusInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
+
                 if(permission != null)
                     callFragment(new FragCustomerInformation(), FragMenu.this);
                 else
@@ -82,6 +86,8 @@ public class FragMenu extends GeneralFragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
+
                 FragLogin.signOut();
                 callFragment(new FragLogin(), null);
             }

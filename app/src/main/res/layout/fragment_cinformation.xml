@@ -7,7 +7,8 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity"
-    android:padding="3mm">
+    android:padding="3mm"
+    android:weightSum="5">
 
 
     <LinearLayout
@@ -55,7 +56,7 @@
             android:layout_gravity="center"
             android:text="הצג מספר"
             android:textColor="@color/white"
-            android:background="@color/brown_button"
+            android:background="@drawable/round_button"
             android:textSize="4mm" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -66,7 +67,7 @@
             android:layout_gravity="center"
             android:text="נהל הזמנה"
             android:textColor="@color/white"
-            android:background="@color/brown_button"
+            android:background="@drawable/round_button"
 
             android:textSize="4mm" />
 
@@ -77,7 +78,7 @@
             android:layout_gravity="center"
             android:text="הצג מיקום"
             android:textColor="@color/white"
-            android:background="@color/brown_button"
+            android:background="@drawable/round_button"
             android:textSize="4mm" />
 
 

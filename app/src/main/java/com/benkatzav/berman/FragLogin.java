@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class FragLogin extends GeneralFragment {
     AppCompatButton signup,login;
     TextInputEditText email,password;
+
+
+
 
     @Nullable
     @Override
@@ -46,6 +48,7 @@ public class FragLogin extends GeneralFragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
                 SignInEmailAndPassword(email.getText().toString(),password.getText().toString());
             }
         });
@@ -53,6 +56,7 @@ public class FragLogin extends GeneralFragment {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
                 createUserEmailAndPassword(email.getText().toString(),password.getText().toString());
             }
         });
@@ -139,6 +143,9 @@ public class FragLogin extends GeneralFragment {
                     }
                 });
     }
+
+
+
 
     public static void signOut(){
         FirebaseAuth.getInstance().signOut();

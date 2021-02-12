@@ -310,7 +310,9 @@
         android:layout_height="wrap_content"
         android:text="@string/update_order"
         android:textColor="@color/white"
-        android:background="@color/brown_button"
-        android:layout_weight="0.5"/>
+        android:background="@drawable/round_button"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.5"
+        />
 
 </LinearLayout>

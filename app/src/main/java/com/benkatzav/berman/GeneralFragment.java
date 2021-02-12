@@ -1,7 +1,9 @@
 package com.benkatzav.berman;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,5 +55,17 @@ public class GeneralFragment extends Fragment {
 
     public static void setCurrentFragment(GeneralFragment currentFragment) {
         GeneralFragment.currentFragment = currentFragment;
+    }
+
+    protected void startSound(int soundFile, int soundOffSet){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("sound", String.valueOf(context));
+                MediaPlayer mp = MediaPlayer.create(context, soundFile);
+                mp.seekTo(soundOffSet);
+                mp.start();
+            }
+        }).start();
     }
 }

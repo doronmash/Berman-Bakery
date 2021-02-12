@@ -56,6 +56,8 @@ public class FragOrderManagment extends GeneralFragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                startSound(R.raw.button_sound, 50);
+
                 Log.d("Pttt", "Inside dataChange");
                 for(int i = 0; i < 6; i++){
                     if(snapshot.child(userID).child("customers").child(customerName).child("order").child(products[i].getText().toString()).getValue() != null)
@@ -72,6 +74,8 @@ public class FragOrderManagment extends GeneralFragment {
         updateOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startSound(R.raw.button_sound, 50);
+
                 for(int i = 0; i < 6; i++) {
                     if (!items[i].getText().toString().equals("")) {
                         myRef.child(userID).child("customers").child(customerName).child("order").child(products[i].getText().toString()).setValue(items[i].getText().toString());
