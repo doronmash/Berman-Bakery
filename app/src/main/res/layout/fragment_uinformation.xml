@@ -122,7 +122,7 @@
            android:id="@+id/uInfo_BTN_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/update"
+            android:text="עדכן"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
             android:background="@drawable/round_button"

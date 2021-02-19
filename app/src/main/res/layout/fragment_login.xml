@@ -82,7 +82,7 @@
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login"
+            android:text="התחבר"
             android:textColor="@color/white"
             android:background="@drawable/round_button"
             android:layout_marginHorizontal="10dp"/>
@@ -91,7 +91,7 @@
             android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup"
+            android:text="הירשם"
             android:textColor="@color/white"
             android:background="@drawable/round_button"
             />
