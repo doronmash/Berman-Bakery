@@ -1,5 +1,6 @@
 package com.benkatzav.berman;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.github.drjacky.imagepicker.ImagePicker;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class GeneralFragment extends Fragment {
@@ -68,4 +70,27 @@ public class GeneralFragment extends Fragment {
             }
         }).start();
     }
+
+    public static void getImage(Activity activity) {
+        ImagePicker.Companion
+                .with(activity)
+                .crop()
+                .cropSquare()
+                .compress(1024)
+                .maxResultSize(1080, 1080)
+                .start();
+    }
+
+
+    public static void getImage(Fragment fragment) {
+        ImagePicker.Companion
+                .with(fragment)
+                .crop()
+                .cropOval()
+                .cropSquare()
+                .compress(1024)
+                .maxResultSize(1080, 1080)
+                .start();
+    }
+
 }

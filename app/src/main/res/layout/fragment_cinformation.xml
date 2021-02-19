@@ -81,9 +81,6 @@
             android:background="@drawable/round_button"
             android:textSize="4mm" />
 
-
-
-
     </LinearLayout>
 
 </LinearLayout>

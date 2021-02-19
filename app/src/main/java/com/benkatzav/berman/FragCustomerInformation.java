@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Dialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -31,6 +35,8 @@ public class FragCustomerInformation extends GeneralFragment {
     private String userID;
     private FirebaseUser currentUser;
     private FirebaseDatabase firebaseDatabase;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
     private DatabaseReference myRef;
     private AppCompatButton phoneNumber, changeOrder,findLocation;
     private Spinner spinner;
@@ -39,7 +45,6 @@ public class FragCustomerInformation extends GeneralFragment {
     private String currentCustomer;
     Dialog myDialog;
     double lat,lng;
-
 
     @Nullable
     @Override
@@ -56,6 +61,11 @@ public class FragCustomerInformation extends GeneralFragment {
         myRef = firebaseDatabase.getReference();
         currentUser = mAuth.getCurrentUser();
         userID = currentUser.getUid();
+
+
+        //public static getInstance(){
+
+        //}
 
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -230,4 +240,9 @@ public class FragCustomerInformation extends GeneralFragment {
         findLocation = rootView.findViewById(R.id.cInfo_BTN_map);
         spinner = rootView.findViewById(R.id.cInfo_spinner);
     }
+
+
+
+
+
 }

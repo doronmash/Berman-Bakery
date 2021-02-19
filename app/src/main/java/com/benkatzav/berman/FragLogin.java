@@ -23,8 +23,6 @@ public class FragLogin extends GeneralFragment {
     TextInputEditText email,password;
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -81,7 +79,6 @@ public class FragLogin extends GeneralFragment {
         }
     }
 
-
     // SIGN IN
     private void SignInEmailAndPassword(String email, String password) {
 
@@ -105,10 +102,8 @@ public class FragLogin extends GeneralFragment {
                             Log.w("Pttt", "signInWithEmail:failure", task.getException());
                             Toast.makeText(getContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
-                            // ...
                         }
 
-                        // ...
                     }
                 });
     }
@@ -138,14 +133,9 @@ public class FragLogin extends GeneralFragment {
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-                        // ...
                     }
                 });
     }
-
-
-
 
     public static void signOut(){
         FirebaseAuth.getInstance().signOut();
